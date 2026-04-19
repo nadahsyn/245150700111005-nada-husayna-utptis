@@ -1,59 +1,59 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+KPOP STORE API (UTP TIS)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Project ini merupakan API sederhana berbasis Laravel yang dibuat untuk memenuhi tugas UTP Teknologi Integrasi Sistem. API ini mensimulasikan backend e-commerce sederhana dengan menggunakan data JSON (tanpa database).
 
-## About Laravel
+DESKRIPSI
+API ini digunakan untuk mengelola data produk K-Pop seperti album, lightstick, dan merchandise lainnya. Fitur utama yang tersedia adalah CRUD (Create, Read, Update, Delete).
+Data disimpan dalam file JSON sehingga tidak menggunakan database.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+BASE URL
+http://127.0.0.1:8000/api
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+ENDPOINT API
+1. Menampilkan semua item
+GET /items
+Digunakan untuk mengambil seluruh data barang.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+2. Menampilkan item berdasarkan ID
+GET /items/{id}
+Contoh:
+GET /items/1
 
-## Learning Laravel
+3. Menambahkan item
+POST /items
+Body (JSON):
+{
+  "name": "TXT Album - Freefall",
+  "price": 300000
+}
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+4. Mengupdate seluruh data item
+PUT /items/{id}
+Digunakan untuk mengganti seluruh data item berdasarkan ID.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+5. Mengupdate sebagian data item
+PATCH /items/{id}
+Contoh:
+{
+  "price": 750000
+}
 
-## Laravel Sponsors
+6. Menghapus item
+DELETE /items/{id}
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+VALIDASI DAN ERROR HANDLING
+API ini sudah menerapkan validasi input, misalnya:
+- name harus diisi
+- price harus berupa angka
+Jika item dengan ID tertentu tidak ditemukan, maka akan muncul response seperti berikut:
+{
+  "message": "Item dengan ID tidak ditemukan"
+}
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+TEKNOLOGI YANG DIGUNAKAN
+- Laravel
+- JSON sebagai penyimpanan data (tanpa database)
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+PENUTUP
+API ini dibuat sebagai latihan implementasi konsep REST API sederhana menggunakan Laravel. Semua endpoint sudah diuji menggunakan Postman dan berjalan dengan baik.

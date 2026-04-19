@@ -13,34 +13,47 @@ http://127.0.0.1:8000/api
 
 ENDPOINT API
 1. Menampilkan semua item
+
 GET /items
+
 Digunakan untuk mengambil seluruh data barang.
 
 2. Menampilkan item berdasarkan ID
+
 GET /items/{id}
+
 Contoh:
 GET /items/1
 
 3. Menambahkan item
+
 POST /items
+
 Body (JSON):
+
 {
   "name": "TXT Album - Freefall",
   "price": 300000
 }
 
 4. Mengupdate seluruh data item
+
 PUT /items/{id}
+
 Digunakan untuk mengganti seluruh data item berdasarkan ID.
 
 5. Mengupdate sebagian data item
+
 PATCH /items/{id}
+
 Contoh:
+
 {
   "price": 750000
 }
 
 6. Menghapus item
+
 DELETE /items/{id}
 
 
